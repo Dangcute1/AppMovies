@@ -11,6 +11,7 @@ import com.example.appmovies.adapter.BannerMoviesPagerAdapter;
 import com.example.appmovies.adapter.MainRecyclerAdapter;
 import com.example.appmovies.model.AllCategory;
 import com.example.appmovies.model.BannerMovies;
+import com.example.appmovies.model.CategoryItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -101,10 +102,34 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
+        List<CategoryItem> homeCatListItem1 = new ArrayList<>();
+        homeCatListItem1.add(new CategoryItem(1, "Ma cà rồng","https://image.tmdb.org/t/p/w342/h4WLN3cmEjCsH1fNGRfvGV6IPBX.jpg",""));
+        homeCatListItem1.add(new CategoryItem(2, "Chiến binh phương bắc","https://image.tmdb.org/t/p/w342/zhLKlUaF1SEpO58ppHIAyENkwgw.jpg",""));
+        homeCatListItem1.add(new CategoryItem(3, "Sinh vật huyền bí: Những bí mật","https://image.tmdb.org/t/p/w342/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",""));
+        homeCatListItem1.add(new CategoryItem(4, "Thành phố mất tích","https://image.tmdb.org/t/p/w342/neMZH82Stu91d3iqvLdNQfqPPyl.jpg",""));
+        homeCatListItem1.add(new CategoryItem(5, "Nhím Sonic 2","https://image.tmdb.org/t/p/w342/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg",""));
+
+        List<CategoryItem> homeCatListItem2 = new ArrayList<>();
+        homeCatListItem2.add(new CategoryItem(1, "Knights of Sidonia: Love Woven in the Stars","https://image.tmdb.org/t/p/w342/pFLTKXZLvG6mvZEZEUqNYiXBL09.jpg",""));
+        homeCatListItem2.add(new CategoryItem(2, "Nhiệm vụ khó khăn","https://image.tmdb.org/t/p/w342/wMszdTo0UuGcAEEDHsQL9dmwLIG.jpg",""));
+        homeCatListItem2.add(new CategoryItem(3, "Những kẻ bị nguyền rủa","https://image.tmdb.org/t/p/w342/rYobaxr1JHhmOSszqQh5Aj4Viiu.jpg",""));
+        homeCatListItem2.add(new CategoryItem(4, "Người khởi lửa","https://image.tmdb.org/t/p/w342/2MTGip0nfahQ1jPQCZSfCsPBZes.jpg",""));
+        homeCatListItem2.add(new CategoryItem(5, "Điểm bước ngoặt","https://image.tmdb.org/t/p/w342/ge7URX8RFL4zAiJ76dprYqs3HEt.jpg",""));
+
+        List<CategoryItem> homeCatListItem3 = new ArrayList<>();
+        homeCatListItem3.add(new CategoryItem(1, "Công tố viên chuyển sinh","https://image.tmdb.org/t/p/w342/6QDWvFl9eScywwF8eUvhVZBleb1.jpg",""));
+        homeCatListItem3.add(new CategoryItem(2, "Nhật ký tự do của tôi","https://image.tmdb.org/t/p/w342/olmfFeKZyQoTwj9Zo3Y5IUaioPB.jpg",""));
+        homeCatListItem3.add(new CategoryItem(3, "Blues nơi đảo xanh","https://image.tmdb.org/t/p/w342/sT5Mlt5UmKiGfBisccwmD4LnPRD.jpg",""));
+        homeCatListItem3.add(new CategoryItem(4, "SPY x FAMILY","https://image.tmdb.org/t/p/w342/3r4LYFuXrg3G8fepysr4xSLWnQL.jpg",""));
+        homeCatListItem3.add(new CategoryItem(5, "Hội những bà mẹ xanh","https://image.tmdb.org/t/p/w342/i67uBlKzy94FqzNJ8bai2IGJ6S.jpg",""));
+
         allCategoryList = new ArrayList<>();
-        allCategoryList.add(new AllCategory(1,"Bold"));
-        allCategoryList.add(new AllCategory(1,"Text"));
-        allCategoryList.add(new AllCategory(1,"Text"));
+        allCategoryList.add(new AllCategory(1,"PHIM ĐỀ CỬ", homeCatListItem1));
+        allCategoryList.add(new AllCategory(2,"PHIM LẺ MỚI CẬP NHẬT", homeCatListItem2));
+        allCategoryList.add(new AllCategory(3,"PHIM BỘ MỚI CẬP NHẬT", homeCatListItem3));
+
+        setMainRecycler(allCategoryList);
     }
     private void setBannerMoviesPagerAdapter(List<BannerMovies> bannerMoviesList)
     {

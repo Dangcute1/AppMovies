@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DoAnLapTrinhA/AppMovies/app/src/main/res/layout/activity_main.xml" value="0.1621376811594203" />
+        <entry key="..\:/DoAnLapTrinhA/AppMovies/app/src/main/res/layout/cat_recycler_row_items.xml" value="0.22" />
+        <entry key="..\:/DoAnLapTrinhA/AppMovies/app/src/main/res/layout/main_recycler_row_item.xml" value="0.1621376811594203" />
         <entry key="..\:/Users/nmhda/AppMovies/app/src/main/res/drawable-v24/unselected.xml" value="0.1895" />
         <entry key="..\:/Users/nmhda/AppMovies/app/src/main/res/drawable/indicator_seletor.xml" value="0.1895" />
         <entry key="..\:/Users/nmhda/AppMovies/app/src/main/res/drawable/selected.xml" value="0.1895" />
