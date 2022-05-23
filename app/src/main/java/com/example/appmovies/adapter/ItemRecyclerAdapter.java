@@ -1,16 +1,20 @@
 package com.example.appmovies.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.appmovies.MovieDetails;
 import com.example.appmovies.R;
 import com.example.appmovies.model.CategoryItem;
 
@@ -33,9 +37,20 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         Glide.with(context).load(categoryItemList.get(position).getImageUrl()).into(holder.itemImage);
+        holder.itemImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, MovieDetails.class);
+                i.putExtra("movieId",categoryItemList.get(position).getId());
+                i.putExtra("movieName",categoryItemList.get(position).getMovieName());
+                i.putExtra("movieImageUrl",categoryItemList.get(position).getImageUrl());
+                i.putExtra("movieFile",categoryItemList.get(position).getFileUrl());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override

@@ -39,6 +39,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     {
         holder.categoryName.setText(allCategoryList.get(position).getCategoryTitle());
         setItemRecycler(holder.itemRecycler, allCategoryList.get(position).getCategoryItemList());
+
     }
 
     @Override

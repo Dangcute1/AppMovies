@@ -1,17 +1,22 @@
 package com.example.appmovies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.NestedScrollingChild;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toolbar;
 
 import com.example.appmovies.adapter.BannerMoviesPagerAdapter;
 import com.example.appmovies.adapter.MainRecyclerAdapter;
 import com.example.appmovies.model.AllCategory;
 import com.example.appmovies.model.BannerMovies;
 import com.example.appmovies.model.CategoryItem;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -29,6 +34,10 @@ public class MainActivity extends AppCompatActivity
     List<BannerMovies> funnyMoviesList;
     List<BannerMovies> kidsMoviesList;
     Timer sliderTimer;
+
+    NestedScrollView nestedScrollView;
+    AppBarLayout appBarLayout;
+
     MainRecyclerAdapter mainRecyclerAdapter;
     RecyclerView mainRecycler;
     List<AllCategory> allCategoryList;
@@ -41,6 +50,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Indicatortab= findViewById(R.id.tab_indicator);
         categoryTab = findViewById(R.id.tabLayout);
+        nestedScrollView = findViewById(R.id.nested_scroll);
+        appBarLayout = findViewById(R.id.appbar);
 
         homeMoviesList = new ArrayList<>();
         homeMoviesList.add(new BannerMovies(1,"The Expendables ","https://kenh14cdn.com/thumb_w/650/2016/1-1482533510374.jpg",""));
@@ -79,15 +90,19 @@ public class MainActivity extends AppCompatActivity
                 switch (tab.getPosition())
                 {
                     case 1:
+                        setScrollDefaultState();
                         setBannerMoviesPagerAdapter(actionsMoviesList);
                         return;
                     case 2:
+                        setScrollDefaultState();
                         setBannerMoviesPagerAdapter(funnyMoviesList);
                         return;
                     case 3:
+                        setScrollDefaultState();
                         setBannerMoviesPagerAdapter(kidsMoviesList);
                         return;
                     default:
+                        setScrollDefaultState();
                         setBannerMoviesPagerAdapter(homeMoviesList);
                 }
             }
@@ -174,6 +189,12 @@ public class MainActivity extends AppCompatActivity
         mainRecycler.setLayoutManager(layoutManager);
         mainRecyclerAdapter= new MainRecyclerAdapter(this,allCategoryList);
         mainRecycler.setAdapter(mainRecyclerAdapter);
+    }
+
+    private void setScrollDefaultState(){
+        nestedScrollView.fullScroll(View.FOCUS_UP);
+        nestedScrollView.scrollTo(0,0);
+        appBarLayout.setExpanded(true);
     }
 
 }
